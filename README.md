@@ -1,4 +1,4 @@
-<h1><strong>Registro Ponto</strong></h1>
+<h1><strong>Plant Manager/strong></h1>
 
 <strong><h2>🎯 Sobre</h2></strong>
 
