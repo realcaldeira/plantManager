@@ -10,11 +10,13 @@ import {
     TouchableNativeFeedback,
     Platform,
     TouchableWithoutFeedback,
-    Keyboard
+    Keyboard,
+    Alert
  } from 'react-native';
 
- import { useNavigation } from '@react-navigation/core';
+import { useNavigation } from '@react-navigation/core';
 import { Button } from '../components/Button';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -39,7 +41,12 @@ export function UserIdentification(){
         setName(value);
     }
     
-    function handleSubmit(){
+    async function handleSubmit(){
+
+        if(!name)
+            return Alert.alert('Me diz como posso chamar você?');
+            
+        await AsyncStorage.setItem('@plantmanage:user', name);
         navigation.navigate('Confirmation');
     }
     return(
