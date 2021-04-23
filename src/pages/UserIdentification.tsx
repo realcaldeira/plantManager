@@ -46,8 +46,12 @@ export function UserIdentification(){
         if(!name)
             return Alert.alert('Me diz como posso chamar você?');
             
-        await AsyncStorage.setItem('@plantmanage:user', name);
-        navigation.navigate('Confirmation');
+            try{
+                await AsyncStorage.setItem('@plantmanage:user', name);
+                navigation.navigate('Confirmation');
+            }catch{
+                Alert.alert('Não foi possivel salvar o seu nome.')
+            }
     }
     return(
         <SafeAreaView style={styles.container}>
