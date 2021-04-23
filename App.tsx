@@ -20,7 +20,7 @@ export default function App() {
     const subcription = Notifications.addNotificationReceivedListener(
       async notification => {
         const data = notification.request.content.data.plant as PlantProps;
-        console.log(data);
+        
       }
     );
     return () => subcription.remove();
